@@ -50,7 +50,7 @@ class _ProductOverviewScreeenState extends State<ProductOverviewScreeen> {
               cart,
               ch,
             ) =>
-                Badge(
+                Bdge(
               child: ch,
               value: cart.itemsCount.toString(),
             ),

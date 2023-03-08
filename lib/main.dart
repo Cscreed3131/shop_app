@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/Screens/cart_screens.dart';
-import 'package:flutter_complete_guide/providers/cart.dart';
-import 'package:flutter_complete_guide/providers/orders.dart';
+import 'package:flutter_complete_guide/Screens/edit_product_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../Screens/user_product_screen.dart';
+import '../Screens/cart_screens.dart';
+import '../providers/cart.dart';
+import '../providers/orders.dart';
 import './Screens/product_overview_screen.dart';
 import './Screens/product_detail_screen.dart';
 import './providers/products.dart';
@@ -29,15 +31,17 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'MyShop',
         theme: ThemeData(
-          primarySwatch: Colors.purple,
-          accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+              .copyWith(secondary: Colors.deepOrange),
         ),
         home: ProductOverviewScreeen(),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
           OrdersScreen.routeName: (ctx) => OrdersScreen(),
+          UserProductScreen.routeName: (ctx) => UserProductScreen(),
+          EditProductScreen.routeName: (ctx) => EditProductScreen(),
         },
       ),
     );
