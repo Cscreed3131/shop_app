@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/Screens/edit_product_screen.dart';
-import 'package:flutter_complete_guide/providers/products.dart';
-import 'package:flutter_complete_guide/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
 
+import '../Screens/edit_product_screen.dart';
+import '../providers/products.dart';
+import '../widgets/app_drawer.dart';
 import '../widgets/user_product_item.dart';
 
 class UserProductScreen extends StatelessWidget {
-  const UserProductScreen({Key key}) : super(key: key);
   static const routeName = '/user-products';
 
   @override
@@ -34,9 +33,9 @@ class UserProductScreen extends StatelessWidget {
           itemBuilder: (_, i) => Column(
             children: [
               UserProductItem(
-                productData.items[i].id,
                 productData.items[i].title,
                 productData.items[i].imageUrl,
+                productData.items[i].id,
               ),
               Divider(),
             ],
