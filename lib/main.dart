@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/Screens/edit_product_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/cart.dart';
+import '../providers/products.dart';
+import '../providers/orders.dart';
+import '../Screens/edit_product_screen.dart';
 import '../Screens/user_product_screen.dart';
 import '../Screens/cart_screens.dart';
-import '../providers/cart.dart';
-import '../providers/orders.dart';
-import './Screens/product_overview_screen.dart';
-import './Screens/product_detail_screen.dart';
-import './providers/products.dart';
-import './Screens/orders_screen.dart';
+import '../Screens/product_overview_screen.dart';
+import '../Screens/product_detail_screen.dart';
+import '../Screens/orders_screen.dart';
 
 void main() => runApp(MyApp());
 
