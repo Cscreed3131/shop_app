@@ -41,7 +41,7 @@ class CartScreen extends StatelessWidget {
                             Theme.of(context).primaryTextTheme.titleLarge.color,
                       ),
                     ),
-                    backgroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                   ),
                   orderButton(cart: cart)
                 ],
