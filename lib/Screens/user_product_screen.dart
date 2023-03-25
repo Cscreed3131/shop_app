@@ -33,33 +33,32 @@ class UserProductScreen extends StatelessWidget {
       drawer: AppDrawer(),
       body: FutureBuilder(
         future: _refreshProducts(context),
-        builder: (ctx, snapshot) => RefreshIndicator(
-          child: RefreshIndicator(
-            onRefresh: () => snapshot.connectionState == ConnectionState.waiting
+        builder: (ctx, snapshot) =>
+            snapshot.connectionState == ConnectionState.waiting
                 ? Center(
                     child: CircularProgressIndicator(),
                   )
-                : _refreshProducts(context),
-            child: Consumer<Products>(
-              builder: (ctx, productData, _) => Padding(
-                padding: EdgeInsets.all(8),
-                child: ListView.builder(
-                  itemCount: productData.items.length,
-                  itemBuilder: (_, i) => Column(
-                    children: [
-                      UserProductItem(
-                        productData.items[i].title,
-                        productData.items[i].imageUrl,
-                        productData.items[i].id,
+                : RefreshIndicator(
+                    onRefresh: () => _refreshProducts(context),
+                    child: Consumer<Products>(
+                      builder: (ctx, productData, _) => Padding(
+                        padding: EdgeInsets.all(8),
+                        child: ListView.builder(
+                          itemCount: productData.items.length,
+                          itemBuilder: (_, i) => Column(
+                            children: [
+                              UserProductItem(
+                                productData.items[i].title,
+                                productData.items[i].imageUrl,
+                                productData.items[i].id,
+                              ),
+                              Divider(),
+                            ],
+                          ),
+                        ),
                       ),
-                      Divider(),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }
