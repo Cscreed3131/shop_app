@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/providers/auth.dart';
-import 'package:flutter_complete_guide/providers/cart.dart';
-import 'package:flutter_complete_guide/providers/product.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/auth.dart';
+import '../providers/product.dart';
+import '../providers/cart.dart';
 import '../Screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
@@ -31,15 +32,19 @@ class ProductItem extends StatelessWidget {
               arguments: product.id,
             );
           },
-          child: Image.network(
-            product.imageUrl,
-            fit: BoxFit.cover,
+          child: Hero(
+            tag: product.id,
+            child: FadeInImage(
+              placeholder: AssetImage('assets/image/product-placeholder.png'),
+              image: NetworkImage(product.imageUrl),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         footer: GridTileBar(
           backgroundColor: Colors.black87,
           leading: Consumer<Product>(
-            builder: (context, value, child) => IconButton(
+            builder: (ctx, product, _) => IconButton(
               icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_border,
               ),
