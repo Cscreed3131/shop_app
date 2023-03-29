@@ -23,11 +23,11 @@ class AuthScreen extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-                  Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
+                  Color.fromRGBO(100, 43, 175, 1).withOpacity(0.5),
+                  Color.fromRGBO(18, 22, 114, 1).withOpacity(0.9),
                 ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
                 stops: [0, 1],
               ),
             ),
@@ -37,35 +37,39 @@ class AuthScreen extends StatelessWidget {
               height: deviceSize.height,
               width: deviceSize.width,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Flexible(
                     child: Container(
-                      margin: EdgeInsets.only(bottom: 20.0),
+                      margin: EdgeInsets.only(
+                        top: 100.0,
+                        bottom: 90,
+                      ),
                       padding:
-                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
-                      transform: Matrix4.rotationZ(-8 * pi / 180)
-                        ..translate(-10.0),
+                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 90.0),
+                      // transform: Matrix4.rotationZ(-8 * pi / 180)
                       // ..translate(-10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.deepOrange.shade900,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 8,
-                            color: Colors.black26,
-                            offset: Offset(0, 2),
-                          )
-                        ],
+                        // color: Colors.indigo.shade900,
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     blurRadius: 8,
+                        //     color: Colors.black26,
+                        //     offset: Offset(0, 2),
+                        //   )
+                        // ],
                       ),
                       child: Text(
                         'MyShop',
                         style: TextStyle(
-                          color:
-                              Theme.of(context).accentTextTheme.headline6.color,
+                          color: Theme.of(context)
+                              .accentTextTheme
+                              .titleLarge
+                              .color,
                           fontSize: 50,
-                          fontFamily: 'Anton',
+                          fontFamily: 'Barrbar',
                           fontWeight: FontWeight.normal,
                         ),
                       ),
@@ -225,6 +229,7 @@ class _AuthCardState extends State<AuthCard>
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
+        color: Color.fromARGB(255, 107, 61, 236),
         elevation: 8.0,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 300),
@@ -302,7 +307,9 @@ class _AuthCardState extends State<AuthCard>
                   else
                     ElevatedButton(
                       child: Text(
-                          _authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
+                        _authMode == AuthMode.Login ? 'Login' : 'Sign Up',
+                        style: TextStyle(fontFamily: "Barrbar", fontSize: 20),
+                      ),
                       onPressed: _submit,
                       //  style :ButtonStyle(RoundedRectangleBorder(
                       //     borderRadius: BorderRadius.circular(30),
@@ -314,7 +321,9 @@ class _AuthCardState extends State<AuthCard>
                     ),
                   TextButton(
                     child: Text(
-                        '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                      '${_authMode == AuthMode.Login ? 'Sign Up' : 'Login'} Instead',
+                      style: TextStyle(fontFamily: "Barrbar", fontSize: 20),
+                    ),
                     onPressed: _switchAuthMode,
                     // padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                     // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,

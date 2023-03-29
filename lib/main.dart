@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/helpers/custom_route.dart';
 import 'package:provider/provider.dart';
 
+import './helpers/custom_route.dart';
 import './widgets/splash_screen.dart';
 import './providers/auth.dart';
 import './providers/cart.dart';
@@ -15,7 +15,9 @@ import './Screens/product_detail_screen.dart';
 import './Screens/orders_screen.dart';
 import './Screens/auth_screen.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -47,9 +49,10 @@ class MyApp extends StatelessWidget {
         builder: (ctx, auth, _) => MaterialApp(
           title: 'MyShop',
           theme: ThemeData(
-              fontFamily: 'Lato',
-              colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
-                  .copyWith(secondary: Colors.deepOrange),
+              fontFamily: 'Reallishmy',
+              colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal)
+                  .copyWith(secondary: Colors.tealAccent),
+              scaffoldBackgroundColor: Colors.teal[100],
               pageTransitionsTheme: PageTransitionsTheme(builders: {
                 TargetPlatform.android: CustomPageTransitionBuilder(),
                 TargetPlatform.iOS: CustomPageTransitionBuilder(),

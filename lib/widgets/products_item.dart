@@ -7,16 +7,6 @@ import '../providers/cart.dart';
 import '../Screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
-  // final String id;
-  // final String title;
-  // final String imageUrl;
-
-  // ProductItem(
-  //   this.id,
-  //   this.title,
-  //   this.imageUrl,
-  // );
-
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
@@ -42,7 +32,7 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.black12,
           leading: Consumer<Product>(
             builder: (ctx, product, _) => IconButton(
               icon: Icon(
@@ -51,12 +41,13 @@ class ProductItem extends StatelessWidget {
               onPressed: () {
                 product.toggleFavoriteStatus(authData.token, authData.userId);
               },
-              color: Colors.deepOrangeAccent,
+              color: product.isFavorite ? Colors.red : Colors.grey,
             ),
           ),
           title: Text(
             product.title,
             textAlign: TextAlign.center,
+            style: TextStyle(fontFamily: "Barrbar", color: Colors.black),
           ),
           trailing: IconButton(
             icon: Icon(Icons.shopping_cart),

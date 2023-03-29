@@ -38,6 +38,8 @@ class Bdge extends StatelessWidget {
               value,
               textAlign: TextAlign.center,
               style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.w800,
                 fontSize: 10,
               ),
             ),
